@@ -1,0 +1,134 @@
+⁠html
+<div class="app-layout">
+  <aside class="feature-sidebar">
+    <button data-target="dashboard-view">Overview</button>
+    <button data-target="planner-view">Outdoor planner</button>
+    <button data-target="compare-view">Compare places</button>
+    <button data-target="campus-view">Campus board</button>
+    <button data-target="insights">Air insights</button>
+    <button data-target="stations">Station finder</button>
+    <button data-target="learn">Learn</button>
+  </aside>
+
+  <main class="feature-content">
+    <section id="dashboard-view" class="screen-section">
+      <!-- existing Overview content -->
+    </section>
+
+    <section id="planner-view" class="screen-section">
+      <!-- existing Outdoor planner content -->
+    </section>
+
+    <!-- Repeat for compare-view, campus-view, insights, stations, and learn -->
+  </main>
+</div>
+ ⁠
+
+Remove ⁠ hidden ⁠ from these sections, because scrolling needs all sections to be visible in the page.
+
+Add this to the bottom of ⁠ style.css ⁠:
+
+⁠ css
+.app-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 32px;
+  max-width: 1400px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.feature-sidebar {
+  position: sticky;
+  top: 24px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature-sidebar button {
+  width: 100%;
+  border: 0;
+  border-left: 3px solid transparent;
+  background: transparent;
+  color: #64748b;
+  padding: 14px 16px;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.feature-sidebar button.active {
+  border-left-color: #0f766e;
+  background: #e6fffb;
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.feature-content {
+  min-width: 0;
+}
+
+.screen-section {
+  min-height: 85vh;
+  scroll-margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 760px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px 0;
+    background: white;
+  }
+
+  .feature-sidebar button {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+ ⁠
+
+Then add this near the bottom of ⁠ app.js ⁠:
+
+⁠ js
+const sideButtons = document.querySelectorAll(".feature-sidebar button");
+const screenSections = document.querySelectorAll(".screen-section");
+
+sideButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    document.getElementById(button.dataset.target).scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      sideButtons.forEach((button) => {
+        button.classList.toggle(
+          "active",
+          button.dataset.target === entry.target.id
+        );
+      });
+    });
+  },
+  {
+    threshold: 0.45
+  }
+);
+
+screenSections.forEach((section) => observer.observe(section));

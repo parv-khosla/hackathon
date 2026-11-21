@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#edf8f5" />
+    <title>Airway — Find cleaner outdoor spaces</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#dashboard-view" aria-label="Airway home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36"><path d="M8 20c5-8 10-12 20-12-2 8-7 13-16 15" /><path d="M8 20c3 2 6 4 8 8" /></svg>
+        </span>
+        <span>Airway</span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-button" type="button" aria-label="Notifications">
+          <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>
+        </button>
+        <button class="avatar" type="button" aria-label="Open profile">MK</button>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <aside class="feature-sidebar" aria-label="Sections">
+        <p class="sidebar-label">Explore</p>
+        <button class="active" type="button" data-target="dashboard-view">
+          <span class="nav-icon">⌂</span> Overview
+        </button>
+        <button type="button" data-target="planner-view">
+          <span class="nav-icon">⌖</span> Outdoor planner
+        </button>
+        <button type="button" data-target="compare-view">
+          <span class="nav-icon">⇄</span> Compare places
+        </button>
+        <button type="button" data-target="campus-view">
+          <span class="nav-icon">▦</span> Campus board
+        </button>
+        <button type="button" data-target="insights">
+          <span class="nav-icon">≋</span> Air insights
+        </button>
+        <button type="button" data-target="stations">
+          <span class="nav-icon">◉</span> Station finder
+        </button>
+        <button type="button" data-target="learn">
+          <span class="nav-icon">◎</span> Learn
+        </button>
+      </aside>
+
+      <main class="feature-content">
+        <section id="dashboard-view" class="screen-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Monday, 21 November</p>
+              <h1>Good morning, Maya</h1>
+            </div>
+            <button class="location-button" type="button">⌖  San Francisco, CA</button>
+          </div>
+
+          <div class="hero-grid">
+            <article class="air-card">
+              <div class="air-card-head">
+                <span>Air quality now</span>
+                <span class="live-dot">Live</span>
+              </div>
+              <div class="aq-content">
+                <div class="aq-ring">
+                  <div><strong>42</strong><span>US AQI</span></div>
+                </div>
+                <div>
+                  <p class="status">Good</p>
+                  <p>Air quality is satisfactory. It is a great time to enjoy outdoor activities.</p>
+                </div>
+              </div>
+              <div class="pollutants">
+                <div><span>PM2.5</span><strong>8 µg/m³</strong></div>
+                <div><span>PM10</span><strong>16 µg/m³</strong></div>
+                <div><span>O₃</span><strong>31 ppb</strong></div>
+              </div>
+            </article>
+
+            <article class="forecast-card">
+              <div class="card-heading">
+                <h2>Today’s outlook</h2>
+                <button type="button" aria-label="More options">•••</button>
+              </div>
+              <div class="forecast-chart" aria-label="Hourly air quality chart">
+                <div class="chart-line"></div>
+                <div class="chart-point point-1"><span>42</span></div>
+                <div class="chart-point point-2"><span>38</span></div>
+                <div class="chart-point point-3"><span>45</span></div>
+                <div class="chart-point point-4"><span>51</span></div>
+                <div class="chart-point point-5"><span>47</span></div>
+              </div>
+              <div class="chart-times"><span>Now</span><span>10 AM</span><span>12 PM</span><span>2 PM</span><span>4 PM</span></div>
+              <p class="forecast-note"><span>↗</span> Best window: 10 AM–1 PM</p>
+            </article>
+          </div>
+
+          <h2 class="subheading">Recommended nearby</h2>
+          <div class="place-grid">
+            <article class="place-card">
+              <div class="place-photo park-photo"><span class="place-score">AQI 28</span></div>
+              <div class="place-info"><div><h3>Presidio Park</h3><p>1.8 km · Walking</p></div><button aria-label="Save Presidio Park">♡</button></div>
+            </article>
+            <article class="place-card">
+              <div class="place-photo waterfront-photo"><span class="place-score">AQI 34</span></div>
+              <div class="place-info"><div><h3>Crissy Field</h3><p>3.2 km · Cycling</p></div><button aria-label="Save Crissy Field">♡</button></div>
+            </article>
+            <article class="place-card">
+              <div class="place-photo garden-photo"><span class="place-score">AQI 39</span></div>
+              <div class="place-info"><div><h3>Conservatory Garden</h3><p>4.6 km · Transit</p></div><button aria-label="Save Conservatory Garden">♡</button></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="planner-view" class="screen-section">
+          <div class="section-heading"><div><p class="eyebrow">Plan ahead</p><h1>Outdoor planner</h1></div></div>
+          <div class="panel-grid">
+            <article class="content-panel planner-main">
+              <div class="card-heading"><h2>Plan a healthier activity</h2><span class="tag">Best today</span></div>
+              <label>Choose an activity
+                <select id="activity-select"><option>Easy walk</option><option>Run</option><option>Cycling</option><option>Outdoor workout</option></select>
+              </label>
+              <label>Start time
+                <input id="time-input" type="time" value="10:30" />
+              </label>
+              <button class="primary-button" id="plan-button" type="button">Find the best time</button>
+              <p class="planner-result" id="planner-result">10:30 AM looks ideal for an easy walk.</p>
+            </article>
+            <article class="content-panel">
+              <h2>Next 24 hours</h2>
+              <div class="timeline"><div><span>Now</span><strong>Good</strong></div><div><span>12 PM</span><strong>Good</strong></div><div><span>3 PM</span><strong>Moderate</strong></div><div><span>6 PM</span><strong>Good</strong></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="compare-view" class="screen-section">
+          <div class="section-heading"><div><p class="eyebrow">Explore</p><h1>Compare places</h1></div></div>
+          <div class="comparison">
+            <article><p>Presidio Park</p><strong>28</strong><span>Good</span></article>
+            <article><p>Union Square</p><strong>46</strong><span>Good</span></article>
+            <article><p>Mission District</p><strong>58</strong><span>Moderate</span></article>
+          </div>
+        </section>
+
+        <section id="campus-view" class="screen-section">
+          <div class="section-heading"><div><p class="eyebrow">Community</p><h1>Campus board</h1></div></div>
+          <div class="board-grid">
+            <article class="content-panel"><h2>Campus health</h2><p class="board-score">Good</p><p>Outdoor conditions are healthy across all monitored areas.</p></article>
+            <article class="content-panel"><h2>Active monitors</h2><p class="board-score">12</p><p>Stations reporting within the last 5 minutes.</p></article>
+            <article class="content-panel"><h2>Field trip alert</h2><p>No alerts for the rest of the day.</p></article>
+          </div>
+        </section>
+
+        <section id="insights" class="screen-section">
+          <div class="section-heading"><div><p class="eyebrow">Weekly view</p><h1>Air insights</h1></div></div>
+          <article class="content-panel insights-panel">
+            <h2>Average AQI this week</h2>
+            <div class="bar-chart" aria-label="Weekly AQI bar chart">
+              <div><span style="height:58%"></span><small>Mon</small></div><div><span style="height:72%"></span><small>Tue</small></div><div><span style="height:50%"></span><small>Wed</small></div><div><span style="height:64%"></span><small>Thu</small></div><div><span style="height:44%"></span><small>Fri</small></div><div><span style="height:38%"></span><small>Sat</small></div><div><span style="height:42%"></span><small>Sun</small></div>
+            </div>
+          </article>
+        </section>
+
+        <section id="stations" class="screen-section">
+          <div class="section-heading"><div><p class="eyebrow">Near you</p><h1>Station finder</h1></div></div>
+          <div class="station-list">
+            <article><div class="station-dot good"></div><div><h2>Presidio Station</h2><p>0.8 km away · Updated 2 min ago</p></div><strong>28</strong></article>
+            <article><div class="station-dot good"></div><div><h2>Golden Gate Station</h2><p>2.1 km away · Updated 4 min ago</p></div><strong>35</strong></article>
+            <article><div class="station-dot moderate"></div><div><h2>SoMa Station</h2><p>3.7 km away · Updated 6 min ago</p></div><strong>57</strong></article>
+          </div>
+        </section>
+
+        <section id="learn" class="screen-section">
+          <div class="section-heading"><div><p class="eyebrow">Knowledge</p><h1>Learn about air quality</h1></div></div>
+          <div class="learn-grid">
+            <article><span>01</span><h2>What is AQI?</h2><p>Understand the index used to describe daily air quality and health risk.</p></article>
+            <article><span>02</span><h2>Know PM2.5</h2><p>Learn why small particles matter and how to reduce exposure.</p></article>
+            <article><span>03</span><h2>Outdoor timing</h2><p>Find the best time of day for exercise, walks, and outdoor play.</p></article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
